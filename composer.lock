@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ba18aa8d82c7bebcb67f8540fbc5b349",
-    "content-hash": "adbe6ea01eb688ba0605507463ce7191",
+    "hash": "b5ddd481978ba4061ae3ad8800d3423e",
+    "content-hash": "8475d19ddce99d6ec971ab7ffd34303f",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -339,6 +339,53 @@
             "time": "2013-12-10 17:49:58"
         },
         {
+            "name": "cloud_resource_manager/crm",
+            "version": "5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lsqpy/cloud_resource_manager.git",
+                "reference": "62363fee4525f8c2f81905db176822e1942f2267"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lsqpy/cloud_resource_manager/zipball/62363fee4525f8c2f81905db176822e1942f2267",
+                "reference": "62363fee4525f8c2f81905db176822e1942f2267",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "qiniu/php-sdk": "^7.0"
+            },
+            "require-dev": {
+                "qiniu/php-sdk": "^7.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "crm\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "lsq",
+                    "email": "120337210@qq.com",
+                    "homepage": "http://www.baidu.com"
+                }
+            ],
+            "description": "php-sdk cloud_resource_manager",
+            "keywords": [
+                "cloud",
+                "iamges",
+                "resource",
+                "sdk"
+            ],
+            "time": "2016-06-14 09:57:23"
+        },
+        {
             "name": "dmstr/yii2-adminlte-asset",
             "version": "2.3.1",
             "source": {
@@ -493,6 +540,57 @@
                 "yii"
             ],
             "time": "2016-03-19 13:40:35"
+        },
+        {
+            "name": "qiniu/php-sdk",
+            "version": "v7.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qiniu/php-sdk.git",
+                "reference": "50e3375a7044d5f94de9570ce5966c1b6174bda3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/qiniu/php-sdk/zipball/50e3375a7044d5f94de9570ce5966c1b6174bda3",
+                "reference": "50e3375a7044d5f94de9570ce5966c1b6174bda3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Qiniu\\": "src/Qiniu"
+                },
+                "files": [
+                    "src/Qiniu/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Qiniu",
+                    "email": "sdk@qiniu.com",
+                    "homepage": "http://www.qiniu.com"
+                }
+            ],
+            "description": "Qiniu Resource (Cloud) Storage SDK for PHP",
+            "homepage": "http://developer.qiniu.com/",
+            "keywords": [
+                "cloud",
+                "qiniu",
+                "sdk",
+                "storage"
+            ],
+            "time": "2016-01-11 13:20:52"
         },
         {
             "name": "rmrevin/yii2-fontawesome",
