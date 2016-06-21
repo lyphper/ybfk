@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'gather_url:url',
             'gather_rule:ntext',
+            'gather_range',
             'output_encoding',
             'input_encoding',
             'remove_head',

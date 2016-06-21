@@ -123,7 +123,19 @@ class GatherResultController extends Controller
         }
     }
 
+    /**
+     * 开始采集
+     * @param $rule_id 采集规则id
+     * @return bool
+     */
     public function actionStartGather($rule_id){
-        return GatherResult::startGather($rule_id);
+        GatherResult::startGather($rule_id);
+        return $this->redirect(['gather-rules/index']);
+    }
+
+    public function actionTest(){
+        $a=GatherResult::findOne(3);
+//        var_dump(stripslashes($a->gather_content));die;
+        print_r(stripslashes($a->gather_content));
     }
 }

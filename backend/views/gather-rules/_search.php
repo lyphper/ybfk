@@ -23,9 +23,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'gather_rule') ?>
 
+    <?= $form->field($model, 'gather_range') ?>
+
     <?= $form->field($model, 'output_encoding') ?>
 
-    <?= $form->field($model, 'input_encoding') ?>
+    <?php // echo $form->field($model, 'input_encoding') ?>
 
     <?php // echo $form->field($model, 'remove_head') ?>
 

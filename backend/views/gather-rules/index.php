@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'gather_url:url',
             'gather_rule:ntext',
+            'gather_range',
             'output_encoding',
             'input_encoding',
 //            'remove_head', 
@@ -40,11 +41,32 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'class' => 'yii\grid\ActionColumn',
+                'template'=>'{view}{update}{delete}{gather}',
                 'buttons' => [
-                'update' => function ($url, $model) {
-                                    return Html::a('<span class="glyphicon glyphicon-pencil"></span>', Yii::$app->urlManager->createUrl(['gather-rules/view','id' => $model->id,'edit'=>'t']), [
-                                                    'title' => Yii::t('yii', 'Edit'),
-                                                  ]);}
+                    'view' => function ($url, $model) {
+                        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', Yii::$app->urlManager->createUrl(['gather-rules/view','id' => $model->id]), [
+                            'title' => Yii::t('yii', 'Edit'),
+                            'style' => 'margin-right:5%;margin-bottom:2%',
+                        ]);
+                    },
+                    'update' => function ($url, $model) {
+                        return Html::a('<span class="glyphicon glyphicon-pencil"></span>', Yii::$app->urlManager->createUrl(['gather-rules/view','id' => $model->id,'edit'=>'t']), [
+                            'title' => Yii::t('yii', 'Edit'),
+                            'style' => 'margin-right:5%;margin-bottom:2%',
+                        ]);
+                    },
+//                    'delete' => function ($url, $model) {
+//                        return Html::a('<span class="glyphicon glyphicon-trash"></span>', Yii::$app->urlManager->createUrl(['gather-rules/delete','id' => $model->id]), [
+//                            'title' => Yii::t('yii', 'Edit'),
+//                            'style' => 'margin-right:5%;margin-bottom:2%',
+//                        ]);
+//                    },
+                    'gather' => function ($url, $model) {
+                        return Html::a('<span class="glyphicon glyphicon-plus"></span>', Yii::$app->urlManager->createUrl(['gather-result/start-gather','rule_id' => $model->id]), [
+                            'title' => Yii::t('yii', 'Edit'),
+                            'style' => 'margin-left:5%;margin-bottom:2%',
+                        ]);
+                    }
 
                 ],
             ],

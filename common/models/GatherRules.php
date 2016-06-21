@@ -11,6 +11,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $id
  * @property string $gather_url
  * @property string $gather_rule
+ * @property string $gather_range
  * @property string $output_encoding
  * @property string $input_encoding
  * @property string $remove_head
@@ -35,7 +36,7 @@ class GatherRules extends \yii\db\ActiveRecord
         return [
             [['gather_rule'], 'string'],
             [['created_at', 'updated_at'], 'integer'],
-            [['gather_url'], 'string', 'max' => 255],
+            [['gather_url', 'gather_range'], 'string', 'max' => 255],
             [['output_encoding', 'input_encoding', 'remove_head'], 'string', 'max' => 10],
         ];
     }
@@ -49,6 +50,7 @@ class GatherRules extends \yii\db\ActiveRecord
             'id' => '自增id',
             'gather_url' => '采集地址',
             'gather_rule' => '采集规则',
+            'gather_range' => '区域选择器',
             'output_encoding' => '输出编码',
             'input_encoding' => '输入编码',
             'remove_head' => '是否移除头部',

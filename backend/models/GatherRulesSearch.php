@@ -16,7 +16,7 @@ class GatherRulesSearch extends GatherRules
     {
         return [
             [['id', 'created_at', 'updated_at'], 'integer'],
-            [['gather_url', 'gather_rule', 'output_encoding', 'input_encoding', 'remove_head'], 'safe'],
+            [['gather_url', 'gather_rule', 'gather_range', 'output_encoding', 'input_encoding', 'remove_head'], 'safe'],
         ];
     }
 
@@ -46,6 +46,7 @@ class GatherRulesSearch extends GatherRules
 
         $query->andFilterWhere(['like', 'gather_url', $this->gather_url])
             ->andFilterWhere(['like', 'gather_rule', $this->gather_rule])
+            ->andFilterWhere(['like', 'gather_range', $this->gather_range])
             ->andFilterWhere(['like', 'output_encoding', $this->output_encoding])
             ->andFilterWhere(['like', 'input_encoding', $this->input_encoding])
             ->andFilterWhere(['like', 'remove_head', $this->remove_head]);

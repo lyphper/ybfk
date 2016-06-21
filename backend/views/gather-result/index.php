@@ -38,12 +38,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{view}',
                 'buttons' => [
                 'update' => function ($url, $model) {
-                                return Html::a('<span class="glyphicon glyphicon-pencil"></span>', Yii::$app->urlManager->createUrl(['gather-result/view','id' => $model->id,'edit'=>'t']), [
-                                                'title' => Yii::t('yii', 'Edit'),
-                          ]);}
+                                    return Html::a('<span class="glyphicon glyphicon-pencil"></span>', Yii::$app->urlManager->createUrl(['gather-result/view','id' => $model->id,'edit'=>'t']), [
+                                                    'title' => Yii::t('yii', 'Edit'),
+                                                  ]);}
 
                 ],
             ],

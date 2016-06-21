@@ -23,11 +23,9 @@ use kartik\datecontrol\DateControl;
 
             'gather_rule'=>['type'=> Form::INPUT_TEXTAREA, 'options'=>['placeholder'=>'Enter 采集规则...','rows'=> 6]],
 
-            'created_at'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 创建时间...']],
-
-            'updated_at'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 修改时间...']],
-
             'gather_url'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 采集地址...', 'maxlength'=>255]],
+
+            'gather_range'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 区域选择器...', 'maxlength'=>255]],
 
             'output_encoding'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 输出编码...', 'maxlength'=>10]],
 
