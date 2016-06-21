@@ -2,10 +2,12 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model backend\models\GatherRules */
+/**
+ * @var yii\web\View $this
+ * @var backend\models\GatherRules $model
+ */
 
-$this->title = 'Update Gather Rules: ' . $model->id;
+$this->title = 'Update Gather Rules: ' . ' ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Gather Rules', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';

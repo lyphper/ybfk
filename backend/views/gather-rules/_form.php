@@ -1,35 +1,45 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use kartik\widgets\ActiveForm;
+use kartik\builder\Form;
+use kartik\datecontrol\DateControl;
 
-/* @var $this yii\web\View */
-/* @var $model backend\models\GatherRules */
-/* @var $form yii\widgets\ActiveForm */
+/**
+ * @var yii\web\View $this
+ * @var backend\models\GatherRules $model
+ * @var yii\widgets\ActiveForm $form
+ */
 ?>
 
 <div class="gather-rules-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['type'=>ActiveForm::TYPE_HORIZONTAL]); echo Form::widget([
 
-    <?= $form->field($model, 'gather_url')->textInput(['maxlength' => true]) ?>
+        'model' => $model,
+        'form' => $form,
+        'columns' => 1,
+        'attributes' => [
 
-    <?= $form->field($model, 'gather_rule')->textarea(['rows' => 6]) ?>
+            'gather_rule'=>['type'=> Form::INPUT_TEXTAREA, 'options'=>['placeholder'=>'Enter 采集规则...','rows'=> 6]],
 
-    <?= $form->field($model, 'output_encoding')->textInput(['maxlength' => true]) ?>
+            'created_at'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 创建时间...']],
 
-    <?= $form->field($model, 'input_encoding')->textInput(['maxlength' => true]) ?>
+            'updated_at'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 修改时间...']],
 
-    <?= $form->field($model, 'remove_head')->textInput(['maxlength' => true]) ?>
+            'gather_url'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 采集地址...', 'maxlength'=>255]],
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+            'output_encoding'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 输出编码...', 'maxlength'=>10]],
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+            'input_encoding'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 输入编码...', 'maxlength'=>10]],
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
+            'remove_head'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter 是否移除头部...', 'maxlength'=>10]],
 
-    <?php ActiveForm::end(); ?>
+        ]
+
+    ]);
+
+    echo Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']);
+    ActiveForm::end(); ?>
 
 </div>

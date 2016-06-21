@@ -37,7 +37,7 @@
                         'url' => '#',
                         'items' => [
                             ['label' => '采集规则', 'icon' => 'fa fa-file-code-o', 'url' => ['/gather-rules/index'],],
-                            ['label' => '采集结果', 'icon' => 'fa fa-dashboard', 'url' => '#',],
+                            ['label' => '采集结果', 'icon' => 'fa fa-dashboard', 'url' => ['/gather-result/index'],],
                         ],
                     ],
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],

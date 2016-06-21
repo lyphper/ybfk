@@ -7,5 +7,7 @@
  */
 namespace backend\models;
 class GatherRules extends \common\models\GatherRules{
-
+    public static function getInfoById($id){
+        return self::findOne($id);
+    }
 }
