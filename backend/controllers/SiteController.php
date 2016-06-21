@@ -1,6 +1,7 @@
 <?php
 namespace backend\controllers;
 
+use QL\QueryList;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -12,6 +13,14 @@ use yii\filters\VerbFilter;
  */
 class SiteController extends Controller
 {
+    public function actionTest(){
+        //获取采集对象
+        $hj = QueryList::Query('https://www.douban.com/note/189603387/?qq-pf-to=pcqq.discussion',array('html'=>array('html','html')),'','UTF-8');
+//        $hj = QueryList::Query('http://www.yiifans.com/forum.php?mod=viewthread&tid=41',array('html'=>array('html','html')),'','UTF-8');
+//        $hj = QueryList::getHtml('http://www.yiifans.com/forum.php?mod=viewthread&tid=41');
+        //输出结果：二维关联数组
+        print_r($hj->data);
+    }
     /**
      * @inheritdoc
      */
