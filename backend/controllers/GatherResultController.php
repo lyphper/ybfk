@@ -135,6 +135,9 @@ class GatherResultController extends Controller
 
     public function actionSee($id){
         $a=GatherResult::findOne($id);
-        print_r($a->gather_content);
+        return $this->renderPartial('see',[
+            'content'=>$a->gather_content
+        ]);
+//        print_r($a->gather_content);
     }
 }

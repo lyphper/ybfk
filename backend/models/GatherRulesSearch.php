@@ -29,6 +29,7 @@ class GatherRulesSearch extends GatherRules
     public function search($params)
     {
         $query = GatherRules::find();
+        $query->orderBy('id DESC');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

@@ -29,6 +29,7 @@ class GatherResultSearch extends GatherResult
     public function search($params)
     {
         $query = GatherResult::find();
+        $query->orderBy('id DESC');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
