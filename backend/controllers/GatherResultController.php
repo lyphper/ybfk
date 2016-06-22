@@ -67,7 +67,7 @@ class GatherResultController extends Controller
         $model = new GatherResult;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -86,7 +86,7 @@ class GatherResultController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -133,9 +133,8 @@ class GatherResultController extends Controller
         return $this->redirect(['gather-rules/index']);
     }
 
-    public function actionTest(){
-        $a=GatherResult::findOne(3);
-//        var_dump(stripslashes($a->gather_content));die;
-        print_r(stripslashes($a->gather_content));
+    public function actionSee($id){
+        $a=GatherResult::findOne($id);
+        print_r($a->gather_content);
     }
 }

@@ -32,17 +32,24 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'rule_id',
             'gather_title',
-            'gather_content:ntext',
+            [
+                'attribute' => 'gather_content',
+                'value'=>function($model){
+                    return mb_substr($model->gather_content,0,100,'UTF-8');
+                }
+            ],
             'created_at',
 //            'updated_at', 
 
             [
                 'class' => 'yii\grid\ActionColumn',
+                'template'=>'{view}{update}{delete}{see}',
                 'buttons' => [
-                'update' => function ($url, $model) {
-                                    return Html::a('<span class="glyphicon glyphicon-pencil"></span>', Yii::$app->urlManager->createUrl(['gather-result/view','id' => $model->id,'edit'=>'t']), [
-                                                    'title' => Yii::t('yii', 'Edit'),
-                                                  ]);}
+                    'see' => function ($url, $model) {
+                        return Html::a('<span class="glyphicon glyphicon-pencil"></span>', Yii::$app->urlManager->createUrl(['gather-result/see','id' => $model->id]), [
+                            'title' => Yii::t('yii', 'Edit'),
+                        ]);
+                    }
 
                 ],
             ],

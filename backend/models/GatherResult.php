@@ -21,12 +21,12 @@ class GatherResult extends \common\models\GatherResult{
         $rule = eval("return $gather_rule->gather_rule;");
         $remove_head = eval("return $gather_rule->remove_head;");
         $hj = QueryList::Query($gather_rule->gather_url,$rule,$gather_rule->gather_range,$gather_rule->output_encoding,$gather_rule->input_encoding,$remove_head);
-//        print_r($hj->data);die;
         $hj=$hj->data;
+//        var_dump($hj);die;
         //输出结果：二维关联数组
         $model=new GatherResult();
         $model->rule_id=$rule_id;
-        $model->gather_title='123123';
+        $model->gather_title=isset($hj[0]['title'])?$hj[0]['title']:'';
         $model->gather_content=$hj[0]['html'];
         return $model->save();
     }
