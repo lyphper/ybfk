@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use QL\QueryList;
 use Yii;
 use backend\models\GatherResult;
 use backend\models\GatherResultSearch;
@@ -139,5 +140,42 @@ class GatherResultController extends Controller
             'content'=>$a->gather_content
         ]);
 //        print_r($a->gather_content);
+    }
+
+
+    public function actionTest(){
+        $urls = array();
+        for ($i=1; $i <= 20; $i++) {
+            $url = "http://wallpaper.pconline.com.cn/pic/17970_{$i}.html";
+            array_push($urls,$url);
+        }
+        QueryList::run('Multi',array(
+            'list' => $urls,
+            /*'curl' => array(
+                    CURLOPT_ENCODING => 'gzip'
+                ),*/
+            'success' => function($a,$_this){
+                $curl = $_this->curl;
+                $reg = array(
+                    'img' => array('#J-BigPic>img','src','',function($content){
+                        //利用回调函数获取原图
+                        return str_replace('_320x480', '', $content);
+                    })
+                );
+                //注意这里，原页面经过了gzip压缩，需要解压缩，可能经常有人误以为是乱码
+                $page = @gzdecode($a['content']);
+                if(!$page){
+                    $page = $a['content'];
+                }
+                QueryList::Query($page,$reg)->getData(function($item) use($curl){
+                    $curl->add(array(
+                        'url' => $item['img'],
+                        //指定图片下载目录
+                        'file' => 'img/'.md5($item['img']).'.jpg'
+                    ));
+                });
+
+            }
+        ));
     }
 }

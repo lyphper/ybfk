@@ -52,6 +52,8 @@ return array(
     'crm\\' => array($vendorDir . '/cloud_resource_manager/crm'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
     'Qiniu\\' => array($vendorDir . '/qiniu/php-sdk/src/Qiniu'),
+    'QL\\Ext\\Lib\\' => array($vendorDir . '/jaeger/curlmulti'),
+    'QL\\Ext\\' => array($vendorDir . '/jaeger/querylist-ext-aquery', $vendorDir . '/jaeger/querylist-ext-multi'),
     'QL\\' => array($vendorDir . '/jaeger/querylist'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),
 );
