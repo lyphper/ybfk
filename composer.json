@@ -24,7 +24,8 @@
         "jaeger/querylist": "^3.1",
         "warrence/yii2-kartikgii": "dev-master",
         "kartik-v/yii2-mpdf": "*",
-        "jaeger/querylist-ext-multi": "^1.0"
+        "jaeger/querylist-ext-multi": "^1.0",
+        "kartik-v/yii2-widget-fileinput": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

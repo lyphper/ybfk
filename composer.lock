@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "40974dbfa9484d94ef1b45eb3a9ec56e",
-    "content-hash": "e094da3a66714d7cea2c354ef5be7de5",
+    "hash": "146deaa6f80d2e98dacbc1fab4f05997",
+    "content-hash": "a53f73f0812aac652e59fb672208ebd9",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -1750,7 +1750,7 @@
         },
         {
             "name": "kartik-v/yii2-widget-fileinput",
-            "version": "v1.0.5",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-fileinput.git",
@@ -3221,7 +3221,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "warrence/yii2-kartikgii": 20
+        "warrence/yii2-kartikgii": 20,
+        "kartik-v/yii2-widget-fileinput": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
