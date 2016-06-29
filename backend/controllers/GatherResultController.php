@@ -178,4 +178,57 @@ class GatherResultController extends Controller
             }
         ));
     }
+
+    public function actionGather(){
+        //多线程扩展
+        QueryList::run('Multi',[
+            'list' => ['http://www.ruanyifeng.com/blog/2014/06/git_remote.html'],
+            'curl' => [
+                'opt' => array(
+                    CURLOPT_SSL_VERIFYPEER => false,
+                    CURLOPT_SSL_VERIFYHOST => false,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_AUTOREFERER => true,
+                ),
+                //设置线程数
+                'maxThread' => 100,
+                //设置最大尝试数
+                'maxTry' => 3
+            ],
+            'success' => function($a){
+                //采集规则
+                $reg = array(
+                    //采集文章标题
+                    'title' => array('h1','text'),
+                    //采集文章发布日期,这里用到了QueryList的过滤功能，过滤掉span标签和a标签
+//                    'date' => array('.published','text','-span -a',function($content){
+//                        //用回调函数进一步过滤出日期
+//                        $arr = explode(' ',$content);
+//                        return $arr[0];
+//                    }),
+                    //采集文章正文内容,利用过滤功能去掉文章中的超链接，但保留超链接的文字，并去掉版权、JS代码等无用信息
+                    'content' => array('#main-content','html','a -.content_copyright -script',function($content){
+                        //利用回调函数下载文章中的图片并替换图片路径为本地路径
+                        //使用本例请确保当前目录下有image文件夹，并有写入权限
+                        //由于QueryList是基于phpQuery的，所以可以随时随地使用phpQuery，当然在这里也可以使用正则或者其它方式达到同样的目的
+                        $doc = \phpQuery::newDocumentHTML($content);
+                        $imgs = pq($doc)->find('img');
+                        foreach ($imgs as $img) {
+                            $src = pq($img)->attr('src');
+                            $localSrc = 'img/'.md5($src).'.jpg';
+                            $stream = file_get_contents($src);
+                            file_put_contents($localSrc,$stream);
+                            pq($img)->attr('src',$localSrc);
+                        }
+                        return $doc->htmlOuter();
+                    })
+                );
+                $rang = '#content';
+                $ql = QueryList::Query($a['content'],$reg,$rang);
+                $data = $ql->getData();
+                //打印结果，实际操作中这里应该做入数据库操作
+                print_r($data);
+            }
+        ]);
+    }
 }

@@ -14,6 +14,6 @@ class GatherRules extends \common\models\GatherRules{
      * @return null|static
      */
     public static function getInfoById($id){
-        return self::findOne($id);
+        return self::find($id)->where(['id'=>$id])->asArray()->one();
     }
 }

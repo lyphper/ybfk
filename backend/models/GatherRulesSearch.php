@@ -15,8 +15,8 @@ class GatherRulesSearch extends GatherRules
     public function rules()
     {
         return [
-            [['id', 'created_at', 'updated_at'], 'integer'],
-            [['gather_url', 'gather_rule', 'gather_range', 'output_encoding', 'input_encoding', 'remove_head'], 'safe'],
+            [['id', 'image_local', 'poll_time', 'enable', 'created_at', 'updated_at'], 'integer'],
+            [['name', 'gather_url', 'gather_title', 'gather_rule', 'gather_range', 'output_encoding', 'input_encoding', 'remove_head'], 'safe'],
         ];
     }
 
@@ -41,11 +41,16 @@ class GatherRulesSearch extends GatherRules
 
         $query->andFilterWhere([
             'id' => $this->id,
+            'image_local' => $this->image_local,
+            'poll_time' => $this->poll_time,
+            'enable' => $this->enable,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'gather_url', $this->gather_url])
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'gather_url', $this->gather_url])
+            ->andFilterWhere(['like', 'gather_title', $this->gather_title])
             ->andFilterWhere(['like', 'gather_rule', $this->gather_rule])
             ->andFilterWhere(['like', 'gather_range', $this->gather_range])
             ->andFilterWhere(['like', 'output_encoding', $this->output_encoding])

@@ -9,7 +9,7 @@ use kartik\datecontrol\DateControl;
  * @var backend\models\GatherRules $model
  */
 
-$this->title = $model->id;
+$this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Gather Rules', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -30,12 +30,17 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         'attributes' => [
             'id',
+            'name',
             'gather_url:url',
+            'gather_title',
             'gather_rule:ntext',
             'gather_range',
             'output_encoding',
             'input_encoding',
             'remove_head',
+            'image_local',
+            'poll_time:datetime',
+            'enable',
             'created_at',
             'updated_at',
         ],

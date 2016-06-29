@@ -19,17 +19,27 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
+    <?= $form->field($model, 'name') ?>
+
     <?= $form->field($model, 'gather_url') ?>
+
+    <?= $form->field($model, 'gather_title') ?>
 
     <?= $form->field($model, 'gather_rule') ?>
 
-    <?= $form->field($model, 'gather_range') ?>
+    <?php // echo $form->field($model, 'gather_range') ?>
 
-    <?= $form->field($model, 'output_encoding') ?>
+    <?php // echo $form->field($model, 'output_encoding') ?>
 
     <?php // echo $form->field($model, 'input_encoding') ?>
 
     <?php // echo $form->field($model, 'remove_head') ?>
+
+    <?php // echo $form->field($model, 'image_local') ?>
+
+    <?php // echo $form->field($model, 'poll_time') ?>
+
+    <?php // echo $form->field($model, 'enable') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
 
