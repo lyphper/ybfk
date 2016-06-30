@@ -8,7 +8,7 @@ use yii\helpers\Url;
 use yii\web\AssetBundle;
 use yii\web\UploadedFile;
 use yii\widgets\InputWidget;
-use crm\config;
+use yii;
 
 class showUpfile extends InputWidget
 {
@@ -18,8 +18,20 @@ class showUpfile extends InputWidget
     public $upfile_name;
     public $user;
 
+    public $accessKey;
+    public $secretKey;
+    public $domain;
+    public $bucket;
+    public $select_more;
+
     public function init()
     {
+        $this->accessKey = Yii::$app->getModule('crm')->accessKey;
+        $this->secretKey = Yii::$app->getModule('crm')->secretKey;
+        $this->domain = Yii::$app->getModule('crm')->domain;
+        $this->bucket = Yii::$app->getModule('crm')->bucket;
+        $this->select_more = Yii::$app->getModule('crm')->select_more;
+
         if($this->_id == null){
             $this->_id = "myModal";
         }
@@ -40,19 +52,28 @@ class showUpfile extends InputWidget
         $limit = 20;
         $prefix = '';
         $marker = '';
-        $auth = new Auth(config\conf::$accessKey, config\conf::$secretKey);
+        $auth = new Auth($this->accessKey, $this->secretKey);
         $bucketMgr = new BucketManager($auth);
-        list($list, $marker, $err) = $bucketMgr->listFiles(config\conf::$bucket, $prefix, $marker, $limit);
+        list($list, $marker, $err) = $bucketMgr->listFiles($this->bucket, $prefix, $marker, $limit);
         //计算
         $prefixs = [];
         if(!empty($list)) {
             foreach ($list as $data) {
-                $data['link'] = 'http://'.config\conf::$domain.'/'.$data['key'];
+                $data['link'] = 'http://'.$this->domain.'/'.$data['key'];
                 $prefixs[] = $data;
             }
         }
-        $upload_qiniu_url = 'http://'.config\conf::$domain;
-        return $this->render('show',['upload_qiniu_url'=>$upload_qiniu_url,'model'=>$this->model,'marker'=>$marker,'list'=>$prefixs,'_id'=>$this->_id, 'button_name'=>$this->button_name, 'upfile_name'=>$this->upfile_name]);
+        $upload_qiniu_url = 'http://'.$this->domain;
+        return $this->render('show',[
+            'upload_qiniu_url'=>$upload_qiniu_url,
+            'model'=>$this->model,
+            'marker'=>$marker,
+            'list'=>$prefixs,
+            '_id'=>$this->_id,
+            'button_name'=>$this->button_name,
+            'upfile_name'=>$this->upfile_name,
+            'config_json'=>json_encode(['select_more'=>$this->select_more])
+        ]);
     }
 
 

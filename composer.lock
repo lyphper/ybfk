@@ -365,16 +365,16 @@
         },
         {
             "name": "cloud_resource_manager/crm",
-            "version": "5.2",
+            "version": "5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lsqpy/cloud_resource_manager.git",
-                "reference": "123bf3f2a58eaab901b30f799c79a044c143867b"
+                "reference": "000ef150da9af2245ba0b7ff49ff27d6cc3856f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lsqpy/cloud_resource_manager/zipball/123bf3f2a58eaab901b30f799c79a044c143867b",
-                "reference": "123bf3f2a58eaab901b30f799c79a044c143867b",
+                "url": "https://api.github.com/repos/lsqpy/cloud_resource_manager/zipball/000ef150da9af2245ba0b7ff49ff27d6cc3856f1",
+                "reference": "000ef150da9af2245ba0b7ff49ff27d6cc3856f1",
                 "shasum": ""
             },
             "require": {
@@ -408,7 +408,7 @@
                 "resource",
                 "sdk"
             ],
-            "time": "2016-06-14 10:56:05"
+            "time": "2016-06-15 09:28:51"
         },
         {
             "name": "components/flag-icon-css",

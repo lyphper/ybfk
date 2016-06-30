@@ -23,7 +23,7 @@ $this->registerJs($this->render('_script.js'));
     <?= Html::activeHiddenInput($model, 'parent', ['id' => 'parent_id']); ?>
     <div class="row">
         <div class="col-sm-6">
-            <!--?= //$form->field($model, 'name')->widget(\crm\showUpfile::className(),['upfile_name'=>'name']) ?-->
+            <?= $form->field($model, 'name')->widget(\crm\showUpfile::className(),['upfile_name'=>'name']) ?>
 
 
             <?= $form->field($model, 'name')->textInput(['id' => 'name']) ?>

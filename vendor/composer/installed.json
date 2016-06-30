@@ -1238,55 +1238,6 @@
         ]
     },
     {
-        "name": "cloud_resource_manager/crm",
-        "version": "5.2",
-        "version_normalized": "5.2.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/lsqpy/cloud_resource_manager.git",
-            "reference": "123bf3f2a58eaab901b30f799c79a044c143867b"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/lsqpy/cloud_resource_manager/zipball/123bf3f2a58eaab901b30f799c79a044c143867b",
-            "reference": "123bf3f2a58eaab901b30f799c79a044c143867b",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.4.0",
-            "qiniu/php-sdk": "^7.0"
-        },
-        "require-dev": {
-            "qiniu/php-sdk": "^7.0"
-        },
-        "time": "2016-06-14 10:56:05",
-        "type": "yii2-extension",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "crm\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "lsq",
-                "email": "120337210@qq.com",
-                "homepage": "http://www.baidu.com"
-            }
-        ],
-        "description": "php-sdk cloud_resource_manager",
-        "keywords": [
-            "cloud",
-            "iamges",
-            "resource",
-            "sdk"
-        ]
-    },
-    {
         "name": "jaeger/phpquery-single",
         "version": "0.9.7",
         "version_normalized": "0.9.7.0",
@@ -3341,6 +3292,55 @@
             "upload",
             "widget",
             "yii2"
+        ]
+    },
+    {
+        "name": "cloud_resource_manager/crm",
+        "version": "5.3",
+        "version_normalized": "5.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/lsqpy/cloud_resource_manager.git",
+            "reference": "000ef150da9af2245ba0b7ff49ff27d6cc3856f1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/lsqpy/cloud_resource_manager/zipball/000ef150da9af2245ba0b7ff49ff27d6cc3856f1",
+            "reference": "000ef150da9af2245ba0b7ff49ff27d6cc3856f1",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0",
+            "qiniu/php-sdk": "^7.0"
+        },
+        "require-dev": {
+            "qiniu/php-sdk": "^7.0"
+        },
+        "time": "2016-06-15 09:28:51",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "crm\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "lsq",
+                "email": "120337210@qq.com",
+                "homepage": "http://www.baidu.com"
+            }
+        ],
+        "description": "php-sdk cloud_resource_manager",
+        "keywords": [
+            "cloud",
+            "iamges",
+            "resource",
+            "sdk"
         ]
     }
 ]

@@ -93,15 +93,6 @@ return array (
       '@dmstr' => $vendorDir . '/dmstr/yii2-adminlte-asset',
     ),
   ),
-  'cloud_resource_manager/crm' => 
-  array (
-    'name' => 'cloud_resource_manager/crm',
-    'version' => '5.2.0.0',
-    'alias' => 
-    array (
-      '@crm' => $vendorDir . '/cloud_resource_manager/crm',
-    ),
-  ),
   'kartik-v/yii2-krajee-base' => 
   array (
     'name' => 'kartik-v/yii2-krajee-base',
@@ -352,6 +343,15 @@ return array (
     'alias' => 
     array (
       '@kartik/file' => $vendorDir . '/kartik-v/yii2-widget-fileinput',
+    ),
+  ),
+  'cloud_resource_manager/crm' => 
+  array (
+    'name' => 'cloud_resource_manager/crm',
+    'version' => '5.3.0.0',
+    'alias' => 
+    array (
+      '@crm' => $vendorDir . '/cloud_resource_manager/crm',
     ),
   ),
 );
